@@ -1,0 +1,32 @@
+<div><h2>Search For Restaurant</h2></div>
+
+<form (ngSubmit)="handleSubmit()" [formGroup]="createForm">
+  <select [(ngModel)]="price" formControlName="price" id="price">
+    <option value="1" name="1">$</option>
+    <option value="2" name="2">$$</option>
+    <option value="3" name="3">$$$</option>
+    <option value="4" name="4">$$$$</option>
+  </select>
+  <input
+    [(ngModel)]="city"
+    type="text"
+    placeholder="City"
+    formControlName="city"
+    name="city"
+  />
+  <input
+    [(ngModel)]="state"
+    type="text"
+    placeholder="State"
+    formControlName="state"
+    name="state"
+  />
+  <button type="submit">SEARCH</button>
+</form>
+
+<h3 class="title">Return APIData</h3>
+<ul class="ul-wrapper">
+  <li *ngFor="let return of apiReturn.businesses">
+    <div class="return-div"><img src="{{ return.image_url }}" /></div>
+  </li>
+</ul>
