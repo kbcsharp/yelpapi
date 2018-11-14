@@ -25,4 +25,11 @@ export class YelpService {
       httpOptions
     );
   }
+
+  getDelivery(id) {
+    return this.http.get<any>(
+      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}`,
+      httpOptions
+    );
+  }
 }

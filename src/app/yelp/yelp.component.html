@@ -26,12 +26,18 @@
 
 <h3 class="title">Return APIData</h3>
 <ul class="ul-wrapper">
-  <li *ngFor="let return of apiReturn.businesses">
-    <div class="return-name">{{ return.name }}</div>
-    <div class="return-image"><img src="{{ return.image_url }}" /></div>
-    <div class="return-rating">{{ return.rating }}</div>
-    <div class="return-address">{{ return.location.display_address }}</div>
-    <div class="return-phone">{{ return.phone }}</div>
-    <!-- <div class="return-deliver">{{return.</div> -->
+  <!--
+    <li *ngFor="let return of apiReturn.businesses">
+    <div *ngIf="return.is_closed === false">
+  -->
+  <li *ngIf="randBusiness.is_closed === false">
+    <div class="return-name">{{ randBusiness.name }}</div>
+    <div class="return-image"><img src="{{ randBusiness.image_url }}" /></div>
+    <div class="return-rating">{{ randBusiness.rating }}</div>
+    <div class="return-address">
+      {{ randBusiness.location.display_address }}
+    </div>
+    <div class="return-phone">{{ randBusiness.phone }}</div>
+    <div class="return-delivery">Delivery Available: {{ delivery }}</div>
   </li>
 </ul>

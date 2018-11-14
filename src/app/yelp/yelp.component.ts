@@ -11,7 +11,10 @@ export class YelpComponent implements OnInit {
   city: string = "";
   state: string = "";
   price: string = "";
-  apiReturn = {};
+  // apiReturn = {};
+  // apiReturnArray = [];
+  randBusiness: {} = {};
+  delivery: string = "";
 
   constructor(private _yelp: YelpService, private _fb: FormBuilder) {}
 
@@ -26,8 +29,16 @@ export class YelpComponent implements OnInit {
   handleSubmit = () => {
     // console.log(searchTerm);
     this._yelp.getYelp(this.city, this.state, this.price).subscribe(data => {
-      this.apiReturn = data;
-      console.log(this.apiReturn);
+      let apiReturn = data.businesses;
+      let rand = Math.floor(Math.random() * apiReturn.length);
+      let randBusiness = apiReturn[rand];
+      let id = randBusiness.id;
+      this.randBusiness = randBusiness;
+      this._yelp.getDelivery(id).subscribe(data => {
+        let deliveryReturn = data.transactions;
+        let delivery = deliveryReturn.includes("delivery");
+        this.delivery = delivery;
+      });
     });
   };
 }
