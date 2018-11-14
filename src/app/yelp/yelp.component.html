@@ -33,7 +33,34 @@
   <li *ngIf="randBusiness.is_closed === false">
     <div class="return-name">{{ randBusiness.name }}</div>
     <div class="return-image"><img src="{{ randBusiness.image_url }}" /></div>
-    <div class="return-rating">{{ randBusiness.rating }}</div>
+    <ng-template [ngIf]="randBusiness.rating === 1"
+      ><img src="../../assets/large_1.png"
+    /></ng-template>
+    <ng-template [ngIf]="randBusiness.rating === 1.5"
+      ><img src="../../assets/large_1_half.png"
+    /></ng-template>
+    <ng-template [ngIf]="randBusiness.rating === 2"
+      ><img src="../../assets/large_2.png"
+    /></ng-template>
+    <ng-template [ngIf]="randBusiness.rating === 2.5"
+      ><img src="../../assets/large_2_half.png"
+    /></ng-template>
+    <ng-template [ngIf]="randBusiness.rating === 3"
+      ><img src="../../assets/large_3.png"
+    /></ng-template>
+    <ng-template [ngIf]="randBusiness.rating === 3.5"
+      ><img src="../../assets/large_3_half.png"
+    /></ng-template>
+    <ng-template [ngIf]="randBusiness.rating === 4"
+      ><img src="../../assets/large_4.png"
+    /></ng-template>
+    <ng-template [ngIf]="randBusiness.rating === 4.5"
+      ><img src="../../assets/large_4_half.png"
+    /></ng-template>
+    <ng-template [ngIf]="randBusiness.rating === 5"
+      ><img src="../../assets/large_5.png"
+    /></ng-template>
+    <!-- <div class="return-rating">{{ randBusiness.rating }}</div> -->
     <div class="return-address">
       {{ randBusiness.location.display_address }}
     </div>
